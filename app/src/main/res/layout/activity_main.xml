@@ -99,7 +99,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
-    <TextView
+    <EditText
+        android:inputType="number"
         android:layout_width="179dp"
         android:layout_height="wrap_content"
         android:textSize="40sp"
@@ -107,7 +108,8 @@
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
+        android:inputType="number"
         android:layout_width="179dp"
         android:layout_height="wrap_content"
         android:textSize="40sp"
@@ -118,13 +120,15 @@
     <EditText
         android:layout_width="358dp"
         android:layout_height="wrap_content"
-        android:inputType="phone"
+        android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        android:autofillHints="Ответ"
+        android:hint="@android:string/autofill"/>
 
     <Button
         android:id="@+id/button"
