@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="bottom|center"
     tools:context=".MainActivity"
-    android:background="@drawable/v2cal"
+    android:background="@drawable/calck"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="23dp"
     >
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_begin="110dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -103,36 +103,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
-    <EditText
-        android:inputType="number"
-        android:layout_width="179dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
 
     <EditText
-        android:inputType="number"
-        android:layout_width="179dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:layout_width="358dp"
-        android:layout_height="wrap_content"
+        android:autofillHints="Ответ"
         android:inputType="number"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        android:autofillHints="Ответ"
-       />
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
     <Button
         android:id="@+id/button"
