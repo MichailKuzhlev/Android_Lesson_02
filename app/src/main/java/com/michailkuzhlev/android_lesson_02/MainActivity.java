@@ -11,31 +11,30 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 //region Инициализация кнопок
 
-    TextView calDisplay;
-   Button button1;
-   Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
-    Button button0;
-    Button button000;
-    Button buttonAC;
-    Button buttonPersent;
-    Button buttonPS;
-    Button buttonComma;
-    Button buttonDivis;
-    Button buttonPlus;
-    Button buttonMinus;
-    Button buttonRes;
-    Button buttonX;
+    private TextView calDisplay;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private Button button4;
+    private Button button5;
+    private Button button6;
+    private Button button7;
+    private Button button8;
+    private Button button9;
+    private Button button0;
+    private Button button000;
+    private Button buttonAC;
+    private Button buttonPersent;
+    private Button buttonPS;
+    private Button buttonComma;
+    private Button buttonDivis;
+    private Button buttonPlus;
+    private Button buttonMinus;
+    private Button buttonRes;
+    private Button buttonX;
 
 
 //endregion
-
 
 
     @Override
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void myOnCreate(){
+    private void myOnCreate() {
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
         button3.setOnClickListener(this);
@@ -98,15 +97,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("calDisplay",calDisplay.getText().toString());
-
+        outState.putString("input", input);
 
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        input = savedInstanceState.getString("input");
         calDisplay.setText(savedInstanceState.getString("calDisplay"));
+
 
     }
 
@@ -114,14 +114,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Double Two = 0.0;
     int operation = 0;
     String input = "";
+
     @Override
     public void onClick(View view) {
         Button button = (Button) view;
         calDisplay.setText(String.format("%s%s", calDisplay.getText().toString(), button.getText().toString()));
-        switch (view.getId()){
-            case R.id.buttonAC:{
+        switch (view.getId()) {
+            case R.id.buttonAC: {
                 calDisplay.setText("");
-                input="";
+                input = "";
                 break;
             }
             case R.id.button1:
@@ -135,11 +136,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button9:
             case R.id.button0:
             case R.id.buttonComma:
-            case R.id.button000:{
+            case R.id.button000: {
                 input += button.getText().toString();
                 break;
             }
-            case R.id.buttonPlus:{
+            case R.id.buttonPlus: {
                 Two = first;
                 first = Double.parseDouble(input);
                 input = "";
@@ -153,30 +154,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 operation = 2;
                 break;
             }
-            case R.id.buttonX:{
+            case R.id.buttonX: {
                 Two = first;
                 first = Double.parseDouble(input);
                 input = "";
                 operation = 3;
                 break;
             }
-            case R.id.buttonDivis:{
+            case R.id.buttonDivis: {
                 Two = first;
                 first = Double.parseDouble(input);
                 input = "";
                 operation = 4;
                 break;
             }
-            case R.id.buttonPersent:{
+            case R.id.buttonPersent: {
                 Two = first;
                 first = Double.parseDouble(input);
                 input = "";
                 operation = 5;
                 break;
             }
-            case R.id.buttonRes:{
-               Two = first;
-                first =Double.parseDouble(input);
+            case R.id.buttonRes: {
+                Two = first;
+                first = Double.parseDouble(input);
                 result();
             }
 
@@ -185,21 +186,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    void result(){
-        switch (operation){
-            case 1:{
+    void result() {
+        switch (operation) {
+            case 1: {
                 calDisplay.setText((String.format("%.2f", first + Two)));
                 break;
             }
-            case 2:{
+            case 2: {
                 calDisplay.setText((String.format("%.2f", Two - first)));
                 break;
             }
-            case 3:{
+            case 3: {
                 calDisplay.setText((String.format("%.2f", Two * first)));
                 break;
             }
-            case 4:{
+            case 4: {
                 calDisplay.setText((String.format("%.2f", Two / first)));
                 break;
             }

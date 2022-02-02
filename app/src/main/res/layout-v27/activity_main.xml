@@ -109,6 +109,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2" />
 
+
     <EditText
         android:id="@+id/calDisplay"
         android:layout_width="250dp"
@@ -120,6 +121,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
+
 
     <Button
         android:id="@+id/buttonAC"
