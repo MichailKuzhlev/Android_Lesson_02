@@ -103,6 +103,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button = (Button) view;
         calDisplay.setText(String.format("%s%s", calDisplay.getText().toString(), button.getText().toString()));
         switch (view.getId()){
+            case R.id.buttonAC:{
+                calDisplay.setText("");
+                input="";
+                break;
+            }
             case R.id.button1:
             case R.id.button2:
             case R.id.button3:
@@ -117,11 +122,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button000:{
                 input += button.getText().toString();
                 break;
-            }
-            case R.id.buttonAC:{
-                input="";
-                operation =0;
-              break;
             }
             case R.id.buttonPlus:{
                 Two = first;
@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                Two = first;
                 first =Double.parseDouble(input);
                 result();
-
             }
 
         }
@@ -172,10 +171,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void result(){
         switch (operation){
-            case 0:{
-                calDisplay.setText("");
-                break;
-            }
             case 1:{
                 calDisplay.setText((String.format("%.2f", first + Two)));
                 break;
