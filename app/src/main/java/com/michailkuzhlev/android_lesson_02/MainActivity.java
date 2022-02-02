@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDivis.setOnClickListener(this);
         buttonPlus.setOnClickListener(this);
         buttonX.setOnClickListener(this);
+        buttonAC.setOnClickListener(this);
     }
 
     private void initView() {
@@ -93,26 +94,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calDisplay = findViewById(R.id.calDisplay);
     }
 
-
-    @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("input", input);
+        outState.putString("calDisplay", calDisplay.getText().toString());
+
 
     }
 
-    @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        input = savedInstanceState.getString("input");
         calDisplay.setText(savedInstanceState.getString("calDisplay"));
-
 
     }
 
-    Double first = 0.0;
-    Double Two = 0.0;
-    int operation = 0;
+
+    private Double first = 0.0;
+    private Double Two = 0.0;
+    private int operation = 0;
     String input = "";
 
     @Override
@@ -120,11 +118,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button = (Button) view;
         calDisplay.setText(String.format("%s%s", calDisplay.getText().toString(), button.getText().toString()));
         switch (view.getId()) {
-            case R.id.buttonAC: {
-                calDisplay.setText("");
-                input = "";
-                break;
-            }
             case R.id.button1:
             case R.id.button2:
             case R.id.button3:
@@ -175,11 +168,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 operation = 5;
                 break;
             }
+            case R.id.buttonAC: {
+                operation = 5;
+                result();
+                break;
+            }
             case R.id.buttonRes: {
                 Two = first;
                 first = Double.parseDouble(input);
                 result();
             }
+
 
         }
 
@@ -203,6 +202,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 4: {
                 calDisplay.setText((String.format("%.2f", Two / first)));
                 break;
+            }
+            case 5: {
+                calDisplay.setText("");
             }
 
         }
