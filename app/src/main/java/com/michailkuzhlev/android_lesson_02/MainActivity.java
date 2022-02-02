@@ -1,5 +1,6 @@
 package com.michailkuzhlev.android_lesson_02;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -91,9 +92,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonRes = findViewById(R.id.buttonRes);
         buttonX = findViewById(R.id.buttonX);
         calDisplay = findViewById(R.id.calDisplay);
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("calDisplay",calDisplay.getText().toString());
 
 
     }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        calDisplay.setText(savedInstanceState.getString("calDisplay"));
+
+    }
+
     Double first = 0.0;
     Double Two = 0.0;
     int operation = 0;
