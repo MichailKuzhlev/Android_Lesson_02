@@ -20,18 +20,21 @@
         app:layout_constraintTop_toTopOf="@+id/guideline17">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/Themes_Origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/themes_origin"
             android:textSize="@dimen/TextSizeRadioGroup" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/Themes_White"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/themes_white"
             android:textSize="@dimen/TextSizeRadioGroup" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/Themes_Blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/themes_blue"
