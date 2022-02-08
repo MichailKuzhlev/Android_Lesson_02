@@ -20,4 +20,7 @@
     <string name="comma">,</string>
     <string name="equals">=</string>
     <string name="_000">000</string>
+    <string name="themes_origin">Themes Origin</string>
+    <string name="themes_white">Themes White</string>
+    <string name="themes_blue">Themes Blue</string>
 </resources>
