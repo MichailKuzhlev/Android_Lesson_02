@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 //region Инициализация кнопок
 
     private TextView calDisplay;
@@ -32,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonMinus;
     private Button buttonRes;
     private Button buttonX;
-
+    private RadioButton Themes_Origin;
+    private RadioButton Themes_White;
+    private RadioButton Themes_Blue;
 
 //endregion
 
@@ -40,9 +45,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Android_Origin);
         setContentView(R.layout.activity_main);
         initView();
         myOnCreate();
+        setListener();
+    }
+
+    private void setListener(){
+        Themes_Origin.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()){
+                    case R.id.Themes_Origin:{
+                        MyApp.currentTheme=R.style.Theme_Android_Origin;
+                        break;
+                    }
+                    case R.id.Themes_White:{
+                        MyApp.currentTheme=R.style.Theme_Android_White;
+
+                        break;
+                    }
+                    case R.id.Themes_Blue:{
+                        MyApp.currentTheme=R.style.Theme_Android_Blue;
+                        break;
+                    }
+                }
+                recreate();
+            }
+        });
 
     }
 
@@ -68,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonPlus.setOnClickListener(this);
         buttonX.setOnClickListener(this);
         buttonAC.setOnClickListener(this);
+
     }
 
     private void initView() {
@@ -206,6 +238,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 5: {
                 calDisplay.setText("");
             }
+
+
 
         }
 
